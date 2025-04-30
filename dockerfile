@@ -16,3 +16,4 @@ CMD ["nginx", "-g", "daemon off;"]
 #
 #> docker build -t test-app-frontend-prod .
 #> docker run -it -p 8080:10000 --name test-app-frontend-prod-app test-app-frontend-prod
+
