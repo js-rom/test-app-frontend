@@ -1,0 +1,6 @@
+{
+    "sonarlint.connectedMode.project": {
+        "connectionId": "js-rom",
+        "projectKey": "es.upm.miw:betca-tpv-angular"
+    }
+}
