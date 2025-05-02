@@ -1,1 +1,20 @@
+<mat-toolbar color="primary">
+    <div>
+        <button (click)="login()" *ngIf="!isAuthenticated()" mat-button>
+            <mat-icon>person_outline</mat-icon>
+            <span>Login</span>
+        </button>
+        <button (click)="logout()" *ngIf="isAuthenticated()" mat-button>
+            <span>{{ username }}</span>
+            <mat-icon>person_outline</mat-icon>
+            <span>Logout</span>
+        </button>
+    </div>
+</mat-toolbar>
+
+
 <p>admin works!</p>
+
+<router-outlet></router-outlet>
+
+<app-footer></app-footer>
