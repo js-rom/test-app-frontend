@@ -11,7 +11,7 @@ import {MatIconButton} from "@angular/material/button";
     selector: 'app-filter-input',
     templateUrl: './filter-input.component.html',
 
-    styleUrls: ['./filter-input.component.css']
+    styleUrls: ['./filter-input.component.scss']
 })
 export class FilterInputComponent {
     @Input() title: string = 'Filter';

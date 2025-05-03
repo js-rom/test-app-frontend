@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-wellcome',
   imports: [],
   templateUrl: './wellcome.component.html',
-  styleUrl: './wellcome.component.css'
+  styleUrl: './wellcome.component.scss'
 })
 export class WellcomeComponent {
 
