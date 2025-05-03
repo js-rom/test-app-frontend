@@ -1,8 +1,5 @@
 /* app.component.scss o styles.scss */
-mat-sidenav-container {
-  height: 100vh;
 
-}
 
 .header {
   background: var(--mat-sys-on-primary-container);
@@ -30,32 +27,5 @@ button {
   
 }
 
-mat-nav-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px;
-}
 
-a {
-  color: var(--mat-sys-on-primary-container);
-  text-decoration: none;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-
-  mat-icon {
-    padding: 10px;
-  }
-
-  span {
-    padding: 10px;
-  }
-}
-
-mat-sidenav-content {
-  .container{
-    padding-left: 100px;
-  }
-}
 

@@ -1,29 +1,20 @@
 import { Component } from '@angular/core';
 import { FooterComponent } from "../../common/components/footer.component";
-import { RouterOutlet } from '@angular/router';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatIcon } from '@angular/material/icon';
 import { NgIf } from '@angular/common';
-import { MatSidenav, MatSidenavContainer, MatSidenavContent } from '@angular/material/sidenav';
 import { FormsModule } from '@angular/forms';
-import { MatNavList } from '@angular/material/list';
-import { RouterLink } from '@angular/router';
-
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 
 @Component({
   selector: 'app-admin',
   imports: [FooterComponent,
-    RouterOutlet,
+    SidenavComponent,
     MatToolbar,
     MatIcon,
     NgIf,
-    MatSidenav,
-    MatSidenavContainer,
-    MatSidenavContent,
-    FormsModule,
-    MatNavList,
-    RouterLink],
+    FormsModule],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.scss'
 })
