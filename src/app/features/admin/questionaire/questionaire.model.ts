@@ -1,4 +1,4 @@
 export interface Questionaire {
-    id: number;
+    id: string;
     description: string;
 }
