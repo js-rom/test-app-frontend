@@ -5,6 +5,7 @@ import { MatIcon } from '@angular/material/icon';
 import { NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 
 @Component({
@@ -14,24 +15,11 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     MatToolbar,
     MatIcon,
     NgIf,
-    FormsModule],
+    FormsModule,
+    ToolbarComponent],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.scss'
 })
 export class AdminComponent {
-  title : string = 'TPV';
-  username : string = "jesus";
-
-  login(): void {
-    // TODO
-  }
-
-  logout(): void {
-    // TODO
-  }
-
-  isAuthenticated(): boolean { //TODO
-    return true;
-  }
 
 }
