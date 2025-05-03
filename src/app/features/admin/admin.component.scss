@@ -1,0 +1,61 @@
+/* app.component.scss o styles.scss */
+mat-sidenav-container {
+  height: 100vh;
+
+}
+
+.header {
+  background: var(--mat-sys-on-primary-container);
+}
+
+mat-sidenav {
+  color: var(--mat-sys-on-primary-container);
+  border: 1px solid var(--mat-sys-outline-variant);
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: end;
+  color: var(--mat-sys-on-primary-container);
+
+}
+
+button {
+  color: var(--mat-sys-on-primary-container);
+}
+
+.hamburger {
+  border: none;
+  background-color: var(--mat-sys-surface);
+  
+}
+
+mat-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+}
+
+a {
+  color: var(--mat-sys-on-primary-container);
+  text-decoration: none;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  mat-icon {
+    padding: 10px;
+  }
+
+  span {
+    padding: 10px;
+  }
+}
+
+mat-sidenav-content {
+  .container{
+    padding-left: 100px;
+  }
+}
+

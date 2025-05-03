@@ -4,18 +4,32 @@ import { RouterOutlet } from '@angular/router';
 import { MatToolbar } from '@angular/material/toolbar';
 import { MatIcon } from '@angular/material/icon';
 import { NgIf } from '@angular/common';
+import { MatSidenav, MatSidenavContainer, MatSidenavContent } from '@angular/material/sidenav';
+import { FormsModule } from '@angular/forms';
+import { MatNavList } from '@angular/material/list';
+import { RouterLink } from '@angular/router';
+
 
 
 @Component({
   selector: 'app-admin',
-  imports: [FooterComponent, RouterOutlet, MatToolbar, MatIcon, NgIf],
+  imports: [FooterComponent,
+    RouterOutlet,
+    MatToolbar,
+    MatIcon,
+    NgIf,
+    MatSidenav,
+    MatSidenavContainer,
+    MatSidenavContent,
+    FormsModule,
+    MatNavList,
+    RouterLink],
   templateUrl: './admin.component.html',
-  styleUrl: './admin.component.css'
+  styleUrl: './admin.component.scss'
 })
 export class AdminComponent {
-  title = 'TPV';
-  username = "jesus";
-  cartItemCount: number = 3;
+  title : string = 'TPV';
+  username : string = "jesus";
 
   login(): void {
     // TODO
