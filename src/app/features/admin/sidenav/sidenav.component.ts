@@ -5,11 +5,12 @@ import { MatNavList } from '@angular/material/list';
 import { MatIcon } from '@angular/material/icon';
 import { MatToolbar } from '@angular/material/toolbar';
 import { NgIf } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 
 
 @Component({
   selector: 'app-sidenav',
-  imports: [MatSidenavContainer, MatSidenav, MatNavList, MatIcon, MatToolbar, MatSidenavContent, NgIf],
+  imports: [MatSidenavContainer, MatSidenav, MatNavList, MatIcon, MatToolbar, MatSidenavContent, NgIf, RouterOutlet],
   templateUrl: './sidenav.component.html',
   styleUrl: './sidenav.component.scss'
 })
