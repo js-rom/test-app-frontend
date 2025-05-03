@@ -1,1 +1,13 @@
-<p>toolbar works!</p>
+<mat-toolbar class="header">
+    <div>
+        <button (click)="login()" *ngIf="!isAuthenticated()" mat-button>
+            <mat-icon>person_outline</mat-icon>
+            <span>Login</span>
+        </button>
+        <button (click)="logout()" *ngIf="isAuthenticated()" mat-button>
+            <span>{{ username }}</span>
+            <mat-icon>person_outline</mat-icon>
+            <span>Logout</span>
+        </button>
+    </div>
+</mat-toolbar>
