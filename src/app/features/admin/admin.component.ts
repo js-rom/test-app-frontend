@@ -8,6 +8,7 @@ import { MatSidenav, MatSidenavContainer, MatSidenavContent } from '@angular/mat
 import { FormsModule } from '@angular/forms';
 import { MatNavList } from '@angular/material/list';
 import { RouterLink } from '@angular/router';
+import { SidenavComponent } from "./sidenav/sidenav.component";
 
 
 
@@ -23,7 +24,7 @@ import { RouterLink } from '@angular/router';
     MatSidenavContent,
     FormsModule,
     MatNavList,
-    RouterLink],
+    RouterLink, SidenavComponent],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.scss'
 })
