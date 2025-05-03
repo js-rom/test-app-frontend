@@ -18,7 +18,7 @@ import {UppercaseWordsPipe} from '../pipes/uppercase-words.pipe';
     imports: [MatDialogContent, AsyncPipe, MatLabel, UppercaseWordsPipe, MatDialogActions, MatDialogClose, MatButton,
         NgIf, MatDialogTitle],
     templateUrl: 'read-detail.dialog.component.html',
-    styleUrls: ['./dialog.component.css']
+    styleUrls: ['./dialog.component.scss']
 })
 
 export class ReadDetailDialogComponent {

@@ -9,7 +9,7 @@ import {MatInput} from '@angular/material/input';
     standalone: true,
     imports: [MatDialogContent, MatFormField, FormsModule, MatDialogActions, MatDialogClose, MatButton, MatInput],
     templateUrl: 'number-dialog.component.html',
-    styleUrls: ['./dialog.component.css']
+    styleUrls: ['./dialog.component.scss']
 })
 export class NumberDialogComponent {
     value: number;
