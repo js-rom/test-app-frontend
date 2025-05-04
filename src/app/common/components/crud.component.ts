@@ -21,6 +21,7 @@ import {MatSort} from '@angular/material/sort';
 import {Observable} from 'rxjs';
 
 import {UppercaseWordsPipe} from '../pipes/uppercase-words.pipe';
+import { CrudData } from './crud.model';
 
 @Component({
     standalone: true,
@@ -48,23 +49,32 @@ export class CrudComponent {
     dataSource: MatTableDataSource<any>;
     columns: Array<string>;
     columnsHeader: Array<string>;
+    private exclusions : string[] = [];
 
     @Input()
-    set data(data: Observable<any[]>) {
-        data.subscribe(dataValue => {
+    set data(crudData : CrudData) {
+        this.exclusions = crudData.exclusions;
+        crudData.data.subscribe(dataValue => {
             const columnsSet: Set<string> = new Set();
             this.dataSource = new MatTableDataSource<any>(dataValue);
             if (dataValue) {
                 dataValue.forEach(obj => Object.getOwnPropertyNames(obj)
+                    .filter(property => this.isIncluded(property))
                     .forEach(column => columnsSet.add(column))
                 );
                 this.columns = Array.from(columnsSet);
+                console.log(this.columns)
             } else {
                 this.columns = [];
             }
             columnsSet.add('actions');
             this.columnsHeader = Array.from(columnsSet);
         });
+    }
+
+    isIncluded(def : string) : boolean {
+        console.log(!this.exclusions.includes(def));
+        return !this.exclusions.includes(def);
     }
 
     onRead(item): void {
