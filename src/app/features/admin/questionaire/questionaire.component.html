@@ -1,1 +1,10 @@
-<p>questionaire works!</p>
+<section class="layout">
+    <div class="leftSide"></div>
+    <div class="body">
+        <h1>Cuestionarios</h1>
+        <app-crud [data]="questionaires" (update)="update($event)" [readAction]="false" [deleteAction]="true" [title]="title"></app-crud>
+    </div>
+    <div class="rightSide"></div>
+</section>
+
+
