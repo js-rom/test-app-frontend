@@ -1,1 +1,13 @@
-<p>single-selection-question works!</p>
+<mat-card appearance="outlined">
+    <mat-card-content>
+        <label>1. ¿Cuál es ... ? </label>
+        <mat-radio-group [(ngModel)]="selectedOption">
+            <p *ngFor="let option of options">
+                <mat-radio-button  [value]="option.id">{{option.description}}</mat-radio-button>
+            </p>
+        </mat-radio-group>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>Learn More</button>
+    </mat-card-actions>
+  </mat-card>

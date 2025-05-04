@@ -63,7 +63,6 @@ export class CrudComponent {
                     .forEach(column => columnsSet.add(column))
                 );
                 this.columns = Array.from(columnsSet);
-                console.log(this.columns)
             } else {
                 this.columns = [];
             }
