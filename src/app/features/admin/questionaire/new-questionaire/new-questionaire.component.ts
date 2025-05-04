@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-new-questionaire',
   imports: [],
   templateUrl: './new-questionaire.component.html',
-  styleUrl: './new-questionaire.component.css'
+  styleUrl: './new-questionaire.component.scss'
 })
 export class NewQuestionaireComponent {
 
