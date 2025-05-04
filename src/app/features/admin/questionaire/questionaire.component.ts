@@ -13,13 +13,17 @@ import { CrudComponent } from '@common/components/crud.component';
 export class QuestionaireComponent {
   title : string = 'Gestión de cuestionarios'
   questionaires : Observable<Questionaire[]> = of([]);
+  exclusions : string[] = ['id']
 
   constructor(private readonly questionaireService: QuestionaireService){
     this.questionaires = questionaireService.readAll();
   }
 
-  update(questionaire : Questionaire) {
-    console.log(questionaire);
+  get crudData() {
+    return {
+      data: this.questionaires,
+      exclusions: this.exclusions
+    }
   }
 
 }
