@@ -9,6 +9,7 @@ import { SingleSelectionQuestion } from './single-selection-question.model';
 import { QuestionaireService } from '../questionaire.service';
 import { MatIcon } from '@angular/material/icon';
 import { InputData } from "../../../../common/components/input-data.component";
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-questionaire',
@@ -24,7 +25,8 @@ export class NewQuestionaireComponent {
 
   constructor(private readonly dialog: MatDialog,
     private readonly newQuestionaireService: NewQuestionaireService,
-    private readonly questionaireService: QuestionaireService) {
+    private readonly questionaireService: QuestionaireService,
+    private router: Router, activatedRoute: ActivatedRoute) {
     this.questionCreateUpdate = new Question(undefined, undefined, undefined, undefined)
   }
 
@@ -43,6 +45,7 @@ export class NewQuestionaireComponent {
 
   save() {
     this.questionaireService.create(this.questions);
+    this.router.navigate(['/admin/questionaires']);
   }
 
   delete(question: SingleSelectionQuestion) {
