@@ -23,7 +23,7 @@ export class NewQuestionaireComponent {
     private readonly questionaireService: QuestionaireService) { }
 
   get questions() {
-    return this.newQuestionaireService.readAll()
+    return this.newQuestionaireService.readAll().reverse()
   }
 
   set questions(questions: Array<SingleSelectionQuestion>) {
@@ -32,7 +32,7 @@ export class NewQuestionaireComponent {
 
   create(question: Question): void {
     this.newQuestionaireService.add(question);
-    this.questions = this.newQuestionaireService.readAll().reverse();
+    this.questions = this.newQuestionaireService.readAll();
   }
 
   save() {
