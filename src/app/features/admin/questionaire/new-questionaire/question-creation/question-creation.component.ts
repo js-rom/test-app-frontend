@@ -4,7 +4,6 @@ import { MatRadioGroup, MatRadioButton } from '@angular/material/radio';
 import { FormsModule } from '@angular/forms';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
-import { MatIcon } from '@angular/material/icon';
 import { Question } from '../question.model';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
@@ -21,7 +20,6 @@ import { MatButton } from '@angular/material/button';
     MatFormField,
     MatLabel,
     MatInput,
-    MatIcon,
     ReactiveFormsModule,
     MatButton],
   templateUrl: './question-creation.component.html',
