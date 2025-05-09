@@ -12,7 +12,7 @@ import { InputData } from "../../../../common/components/input-data.component";
 
 @Component({
   selector: 'app-new-questionaire',
-imports: [SingleSelectionQuestionComponent, QuestionCreationComponent, NgFor, MatIcon, InputData],
+  imports: [SingleSelectionQuestionComponent, QuestionCreationComponent, NgFor, MatIcon, InputData],
   templateUrl: './new-questionaire.component.html',
   styleUrl: './new-questionaire.component.scss'
 })
@@ -37,5 +37,9 @@ export class NewQuestionaireComponent {
 
   save() {
     this.questionaireService.create(this.questions);
+  }
+
+  delete(question: SingleSelectionQuestion) {
+    this.newQuestionaireService.delete(question)
   }
 }
