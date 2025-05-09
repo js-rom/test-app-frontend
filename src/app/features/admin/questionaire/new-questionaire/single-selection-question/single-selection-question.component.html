@@ -11,6 +11,15 @@
         </mat-radio-group>
     </mat-card-content>
     <mat-card-actions>
-        <button mat-button>Learn More</button>
+        @if (updateAction) {
+            <button (click)="onUpdate()" mat-icon-button matSuffix>
+                <mat-icon color="warn">edit_note</mat-icon>
+            </button>
+            }
+            @if (deleteAction) {
+            <button (click)="onDelete()" mat-icon-button matSuffix>
+                <mat-icon color="warn">delete</mat-icon>
+            </button>
+            }
     </mat-card-actions>
 </mat-card>

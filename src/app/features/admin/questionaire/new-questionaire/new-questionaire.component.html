@@ -9,7 +9,7 @@
         </section>
         <section class="questions">
             <app-single-selection-question *ngFor="let question of questions; let i = index"
-                [question]="question" [index]="i"></app-single-selection-question>
+                [question]="question" [index]="i" [deleteAction]="true" [updateAction]="true"></app-single-selection-question>
         </section>
     </div>
     <div class="rightSide"></div>
