@@ -8,7 +8,6 @@ export class NewQuestionaireService {
     items: Array<SingleSelectionQuestion> = new Array<SingleSelectionQuestion>();
 
     readAll(): Array<SingleSelectionQuestion> {
-        console.log(this.items)
         return this.items;
     }
 

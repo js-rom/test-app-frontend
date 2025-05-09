@@ -7,7 +7,8 @@ import { MatInput } from '@angular/material/input';
 import { MatIcon } from '@angular/material/icon';
 import { Question } from '../question.model';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-question-creation',
@@ -21,7 +22,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
     MatLabel,
     MatInput,
     MatIcon,
-    ReactiveFormsModule],
+    ReactiveFormsModule,
+    MatButton],
   templateUrl: './question-creation.component.html',
   styleUrl: './question-creation.component.css'
 })
@@ -29,14 +31,12 @@ export class QuestionCreationComponent {
 
   questionCreate: Question;
   form: FormGroup;
+  skills = ['skill 1', 'skill 2']
+  skill;
 
-  constructor(private fb: FormBuilder) {
+  constructor() {
     this.questionCreate = new Question(undefined, undefined, undefined, undefined);
-    this.form = this.fb.group({
-      nombre: ['', [Validators.required, Validators.minLength(3)]],
-      email: ['', [Validators.required, Validators.email]],
-      edad: [null, [Validators.required, Validators.min(18)]]
-    });
+
   }
   @Output() create = new EventEmitter<any>();
 
@@ -47,4 +47,7 @@ export class QuestionCreationComponent {
 
   }
 
+reset(form) {
+  form.resetForm();
+}
 }
