@@ -21,4 +21,13 @@ export class NewQuestionaireService {
           this.items.splice(index, 1);
         }
     }
+
+    update(itemEdit: SingleSelectionQuestion, itemIpdate: SingleSelectionQuestion){
+        itemEdit.description = itemIpdate.description
+        itemEdit.correctOptionIndex =  itemIpdate.correctOptionIndex
+        itemEdit.options[0].description = itemIpdate.options[0].description
+        itemEdit.options[1].description = itemIpdate.options[1].description
+        itemEdit.options[2].description = itemIpdate.options[2].description
+        itemEdit.options[3].description = itemIpdate.options[3].description
+    }
 }

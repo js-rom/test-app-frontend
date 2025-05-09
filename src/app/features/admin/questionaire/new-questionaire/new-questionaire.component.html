@@ -5,12 +5,13 @@
         <app-input-data [title]="'Nuevo Cuestionario'" (action)="save()"></app-input-data>
 
         <section class="newQuestion">
-            <app-question-creation (create)="create($event)"></app-question-creation>
+            <app-question-creation (create)="create($event)" (cancelEdition)="cancelEdition()" (update)="update($event)"
+            [questionCreateUpdate]="questionCreateUpdate" [editAction]="isEdition"></app-question-creation>
         </section>
         <section class="questions">
             <app-single-selection-question *ngFor="let question of questions; let i = index"
                 [question]="question" [index]="i" [deleteAction]="true" [updateAction]="true"
-                (delete)="delete($event)"></app-single-selection-question>
+                (delete)="delete($event)" (update)="edit($event)"></app-single-selection-question>
         </section>
     </div>
     <div class="rightSide"></div>

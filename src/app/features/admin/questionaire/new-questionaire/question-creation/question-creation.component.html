@@ -5,7 +5,7 @@
                 <mat-form-field class="custom-compact-form-field">
                     <mat-label>Pregunta</mat-label>
                     <textarea name="description" required #description="ngModel"
-                        [(ngModel)]="questionCreate.description" matInput></textarea>
+                        [(ngModel)]="questionCreateUpdate.description" matInput></textarea>
                     @if (description.invalid && (description.dirty || description.touched)) {
                     <div class="alert">
                         @if (description.hasError('required')) {
@@ -20,14 +20,14 @@
 
             <div class="form-group">
                 <mat-radio-group #options="ngModel" class="form-control" required name="correctOptionIndex"
-                    [(ngModel)]="questionCreate.correctOptionIndex">
+                    [(ngModel)]="questionCreateUpdate.correctOptionIndex">
                     @for (i of [0, 1, 2, 3]; track i) {
                     <div class="option">
                         <mat-radio-button matInput [value]="i"></mat-radio-button>
                         <mat-form-field>
                             <mat-label>Opción {{i + 1}}</mat-label>
                             <textarea required [name]="i.toString()" #optionDescription="ngModel"
-                                [(ngModel)]="questionCreate.options[i].description" matInput></textarea>
+                                [(ngModel)]="questionCreateUpdate.options[i].description" matInput></textarea>
                             @if (optionDescription.invalid && (optionDescription.dirty || optionDescription.touched)) {
                             <div class="alert">
                                 @if (optionDescription.hasError('required')) {
@@ -52,8 +52,16 @@
                 }
             </div>
             <mat-card-actions>
-                <button mat-flat-button [disabled]="newQuestionForm.invalid" (click)="onCreate()" mat-raised-button
+                @if (!editAction) {
+                    <button mat-flat-button [disabled]="newQuestionForm.invalid" (click)="onCreate()" mat-raised-button
                     type="submit">Añadir</button>
+                }
+                @if (editAction) {
+                    <button mat-flat-button [disabled]="newQuestionForm.invalid" (click)="onUpdate()" mat-raised-button
+                    type="submit">Guardar Cambios</button>
+                    <button mat-flat-button (click)="onCancelEdition()" mat-raised-button
+                    type="submit">Cancelar</button>
+                }
             </mat-card-actions>
         </form>
     </mat-card-content>
