@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 import { Questionaire } from './questionaire.model';
 import { QuestionaireService } from './questionaire.service';
 import { CrudComponent } from '@common/components/crud.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-questionaire',
@@ -15,7 +16,7 @@ export class QuestionaireComponent {
   questionaires : Observable<Questionaire[]> = of([]);
   exclusions : string[] = ['id']
 
-  constructor(private readonly questionaireService: QuestionaireService){
+  constructor(private router: Router, private readonly questionaireService: QuestionaireService){
     this.questionaires = questionaireService.readAll();
   }
 
@@ -24,6 +25,10 @@ export class QuestionaireComponent {
       data: this.questionaires,
       exclusions: this.exclusions
     }
+  }
+
+  create() {
+    this.router.navigate(['/admin/questionaires/new']);
   }
 
 }

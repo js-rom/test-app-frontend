@@ -1,0 +1,25 @@
+<mat-card appearance="outlined">
+    <mat-card-content>
+        <label>{{index+1}}. {{question.description}}</label>
+        <mat-radio-group [(ngModel)]="question.correctOptionIndex">
+            @for (option of question.options; track $index) {
+            <div class="option">
+                <mat-radio-button [value]="$index"></mat-radio-button>
+                <p class="large-text">{{option.description}}</p>
+            </div>
+            }
+        </mat-radio-group>
+    </mat-card-content>
+    <mat-card-actions>
+        @if (updateAction) {
+            <button (click)="onUpdate()" mat-icon-button matSuffix>
+                <mat-icon color="warn">edit_note</mat-icon>
+            </button>
+            }
+            @if (deleteAction) {
+            <button (click)="onDelete()" mat-icon-button matSuffix>
+                <mat-icon color="warn">delete</mat-icon>
+            </button>
+            }
+    </mat-card-actions>
+</mat-card>

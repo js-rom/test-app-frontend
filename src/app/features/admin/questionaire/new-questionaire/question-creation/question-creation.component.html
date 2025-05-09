@@ -1,0 +1,68 @@
+<mat-card>
+    <mat-card-content>
+        <form action="" #newQuestionForm="ngForm" (ngSubmit)="reset(newQuestionForm)">
+            <div class="form-group">
+                <mat-form-field class="custom-compact-form-field">
+                    <mat-label>Pregunta</mat-label>
+                    <textarea name="description" required #description="ngModel"
+                        [(ngModel)]="questionCreateUpdate.description" matInput></textarea>
+                    @if (description.invalid && (description.dirty || description.touched)) {
+                    <div class="alert">
+                        @if (description.hasError('required')) {
+                        <div>
+                            La pregunta es obligatoria.
+                        </div>
+                        }
+                    </div>
+                    }
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-radio-group #options="ngModel" class="form-control" required name="correctOptionIndex"
+                    [(ngModel)]="questionCreateUpdate.correctOptionIndex">
+                    @for (i of [0, 1, 2, 3]; track i) {
+                    <div class="option">
+                        <mat-radio-button matInput [value]="i"></mat-radio-button>
+                        <mat-form-field>
+                            <mat-label>Opción {{i + 1}}</mat-label>
+                            <textarea required [name]="i.toString()" #optionDescription="ngModel"
+                                [(ngModel)]="questionCreateUpdate.options[i].description" matInput></textarea>
+                            @if (optionDescription.invalid && (optionDescription.dirty || optionDescription.touched)) {
+                            <div class="alert">
+                                @if (optionDescription.hasError('required')) {
+                                <div>
+                                    La Opción {{i + 1}} es obligatoria.
+                                </div>
+                                }
+                            </div>
+                            }
+                        </mat-form-field>
+                    </div>
+                    }
+                </mat-radio-group>
+                @if (options.invalid && (options.dirty || options.touched)) {
+                <div class="alert">
+                    @if (options.hasError('required')) {
+                    <div>
+                        Debe seleccionar la opción correcta.
+                    </div>
+                    }
+                </div>
+                }
+            </div>
+            <mat-card-actions>
+                @if (!editAction) {
+                    <button mat-flat-button [disabled]="newQuestionForm.invalid" (click)="onCreate()" mat-raised-button
+                    type="submit">Añadir</button>
+                }
+                @if (editAction) {
+                    <button mat-flat-button [disabled]="newQuestionForm.invalid" (click)="onUpdate()" mat-raised-button
+                    type="submit">Guardar Cambios</button>
+                    <button mat-flat-button (click)="onCancelEdition()" mat-raised-button
+                    type="submit">Cancelar</button>
+                }
+            </mat-card-actions>
+        </form>
+    </mat-card-content>
+</mat-card>

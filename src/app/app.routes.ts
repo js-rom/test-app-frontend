@@ -3,6 +3,7 @@ import { HomeComponent } from './features/home/home.component';
 import { WellcomeComponent } from './features/home/wellcome/wellcome.component';
 import { AdminComponent } from './features/admin/admin.component';
 import { QuestionaireComponent } from './features/admin/questionaire/questionaire.component';
+import { NewQuestionaireComponent } from './features/admin/questionaire/new-questionaire/new-questionaire.component';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home/wellcome' },
@@ -17,7 +18,8 @@ export const routes: Routes = [
         path: 'admin', loadComponent: () => import('./features/admin/admin.component')
         .then(component => component.AdminComponent),
         children: [
-            { path: 'questionaires', component: QuestionaireComponent }
+            { path: 'questionaires', component: QuestionaireComponent },
+            { path: 'questionaires/new', component: NewQuestionaireComponent }
         ]
     }
 ];

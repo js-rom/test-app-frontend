@@ -1,0 +1,13 @@
+mat-form-field {
+    width: 100%;
+    align-items: center;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+}
+
+mat-card-actions {
+    justify-content: center;
+}
