@@ -1,6 +1,7 @@
 import { Observable, of } from "rxjs";
 import { Questionaire } from "./questionaire.model";
 import { Injectable } from "@angular/core";
+import { SingleSelectionQuestion } from "./new-questionaire/single-selection-question.model";
 
 @Injectable({providedIn: 'root'})
 export class QuestionaireService {
@@ -18,4 +19,11 @@ export class QuestionaireService {
     delete() {
 
     }
+
+    create(questions: Array<SingleSelectionQuestion>): Observable<Questionaire> {
+   /*      return this.httpService
+          .post(EndPoints.QUESTIONAIRES, questions); */
+            return of( {id: '6', description: 'cuestionario 6'});
+      }
+    
 }

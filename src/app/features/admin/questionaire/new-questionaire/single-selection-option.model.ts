@@ -1,4 +1,4 @@
 export interface SingleSelectionOption {
-    id: string, 
+    id?: string, 
     description: string
 }

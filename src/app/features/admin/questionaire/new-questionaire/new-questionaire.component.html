@@ -1,13 +1,16 @@
 <section class="layout">
     <div class="leftSide"></div>
     <div class="body">
-        <h1>Nuevo Cuestionario</h1>
-        <p>
-            <label for="description">Descripción:</label>
-            <input type="text" name="description" id="description">
-        </p>
+
+        <app-input-data [title]="'Nuevo Cuestionario'" (action)="save()"></app-input-data>
+
+        <section class="newQuestion">
+            <app-question-creation (create)="create($event)"></app-question-creation>
+        </section>
+        <section class="questions">
+            <app-single-selection-question *ngFor="let question of questions"
+                [question]="question"></app-single-selection-question>
+        </section>
     </div>
     <div class="rightSide"></div>
 </section>
-
-

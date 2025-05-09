@@ -1,0 +1,25 @@
+<mat-card appearance="outlined">
+    <mat-card-content>
+        <mat-form-field class="custom-compact-form-field">
+            <mat-label>Pregunta</mat-label>
+            <textarea [(ngModel)]="questionCreate.description" matInput></textarea>
+        </mat-form-field>
+        <mat-radio-group [(ngModel)]="questionCreate.correctOptionIndex">
+            @for (i of [0, 1, 2, 3]; track i) {
+            <div class="option">
+                <mat-radio-button [value]="i"></mat-radio-button>
+                <mat-form-field>
+                    <mat-label>Opción 1</mat-label>
+                    <textarea [(ngModel)]="questionCreate.options[i].description" matInput></textarea>
+                </mat-form-field>
+            </div>
+            }
+
+        </mat-radio-group>
+    </mat-card-content>
+    <mat-card-actions>
+        <button (click)="onCreate()" mat-icon-button matSuffix>
+            <mat-icon>add_circle</mat-icon>
+        </button>
+    </mat-card-actions>
+</mat-card>

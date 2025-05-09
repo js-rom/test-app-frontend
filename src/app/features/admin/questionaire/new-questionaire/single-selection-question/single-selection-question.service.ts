@@ -1,6 +1,6 @@
 import { Observable, of } from "rxjs";
 import { Injectable } from "@angular/core";
-import { SingleSelectionOption } from "./single-selection-option.model";
+import { SingleSelectionOption } from "../single-selection-option.model";
 
 @Injectable({providedIn: 'root'})
 export class SingleSelectionQuestionService {
