@@ -8,8 +8,8 @@
             <app-question-creation (create)="create($event)"></app-question-creation>
         </section>
         <section class="questions">
-            <app-single-selection-question *ngFor="let question of questions"
-                [question]="question"></app-single-selection-question>
+            <app-single-selection-question *ngFor="let question of questions; let i = index"
+                [question]="question" [index]="i"></app-single-selection-question>
         </section>
     </div>
     <div class="rightSide"></div>

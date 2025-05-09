@@ -21,5 +21,6 @@ import { SingleSelectionQuestion } from '../single-selection-question.model';
 export class SingleSelectionQuestionComponent {
 
   @Input() question: SingleSelectionQuestion;
+  @Input() index: number;
 
 }
