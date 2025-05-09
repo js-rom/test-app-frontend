@@ -2,9 +2,12 @@
     <mat-card-content>
         <label>{{question.description}}</label>
         <mat-radio-group [(ngModel)]="question.correctOptionIndex">
-            <p *ngFor="let option of question.options; let i =index">
-                <mat-radio-button class="expand-radio" [value]="i">{{option.description}}</mat-radio-button>
-            </p>
+            @for (option of question.options; track $index) {
+            <div class="option">
+                <mat-radio-button [value]="$index"></mat-radio-button>
+                <p class="large-text">{{option.description}}</p>
+            </div>
+            }
         </mat-radio-group>
     </mat-card-content>
     <mat-card-actions>
