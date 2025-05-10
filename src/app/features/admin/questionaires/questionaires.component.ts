@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Questionaire } from './questionaire.model';
-import { QuestionaireService } from './questionaire.service';
+import { QuestionaireService } from './questionaires.service';
 import { CrudComponent } from '@common/components/crud.component';
 import { Router } from '@angular/router';
 
