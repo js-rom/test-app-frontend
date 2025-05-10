@@ -6,7 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { QuestionCreationComponent } from "./question-creation/question-creation.component";
 import { NgFor } from '@angular/common';
 import { SingleSelectionQuestion } from './single-selection-question.model';
-import { QuestionaireService } from '../questionaire.service';
+import { QuestionaireService } from '../questionaires.service';
 import { MatIcon } from '@angular/material/icon';
 import { InputData } from "../../../../common/components/input-data.component";
 import { ActivatedRoute, Router } from '@angular/router';
