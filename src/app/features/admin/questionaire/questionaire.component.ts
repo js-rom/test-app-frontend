@@ -17,7 +17,7 @@ export class QuestionaireComponent {
   exclusions : string[] = ['id']
 
   constructor(private router: Router, private readonly questionaireService: QuestionaireService){
-    this.questionaires = questionaireService.readAll();
+    this.readAll();
   }
 
   get crudData() {
@@ -27,8 +27,17 @@ export class QuestionaireComponent {
     }
   }
 
-  create() {
+  readAll(): void {
+    this.questionaires = this.questionaireService.readAll();
+  }
+
+  create() : void {
     this.router.navigate(['/admin/questionaires/new']);
+  }
+
+  delete(questionaire : Questionaire) : void {
+    this.questionaireService.delete(questionaire.id)
+      .subscribe(() => this.readAll());
   }
 
 }
