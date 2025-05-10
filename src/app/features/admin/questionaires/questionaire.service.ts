@@ -1,7 +1,7 @@
 import { Observable, of } from "rxjs";
 import { Questionaire } from "./questionaire.model";
 import { Injectable } from "@angular/core";
-import { SingleSelectionQuestion } from "./new-questionaire/single-selection-question.model";
+import { SingleSelectionQuestion } from "./questionaire/single-selection-question.model";
 
 @Injectable({ providedIn: 'root' })
 export class QuestionaireService {

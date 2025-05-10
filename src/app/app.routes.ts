@@ -3,7 +3,7 @@ import { HomeComponent } from './features/home/home.component';
 import { WellcomeComponent } from './features/home/wellcome/wellcome.component';
 import { AdminComponent } from './features/admin/admin.component';
 import { QuestionairesComponent } from './features/admin/questionaires/questionaires.component';
-import { NewQuestionaireComponent } from './features/admin/questionaires/new-questionaire/new-questionaire.component';
+import { QuestionaireComponent } from './features/admin/questionaires/questionaire/questionaire.component';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: 'home/wellcome' },
@@ -19,8 +19,8 @@ export const routes: Routes = [
         .then(component => component.AdminComponent),
         children: [
             { path: 'questionaires', component: QuestionairesComponent },
-            { path: 'questionaires/new', component: NewQuestionaireComponent },
-            { path: 'questionaires/:id', component: NewQuestionaireComponent }
+            { path: 'questionaires/new', component: QuestionaireComponent },
+            { path: 'questionaires/:id', component: QuestionaireComponent }
         ]
     }
 ];

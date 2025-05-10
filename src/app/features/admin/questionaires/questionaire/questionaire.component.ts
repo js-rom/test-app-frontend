@@ -12,13 +12,13 @@ import { InputData } from "../../../../common/components/input-data.component";
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-new-questionaire',
+  selector: 'app-questionaire',
   imports: [SingleSelectionQuestionComponent, QuestionCreationComponent, NgFor, MatIcon, InputData],
   providers: [NewQuestionaireService],
-  templateUrl: './new-questionaire.component.html',
-  styleUrl: './new-questionaire.component.scss'
+  templateUrl: './questionaire.component.html',
+  styleUrl: './questionaire.component.scss'
 })
-export class NewQuestionaireComponent {
+export class QuestionaireComponent {
 
   private id : string;
   private questionEdit: SingleSelectionQuestion;
