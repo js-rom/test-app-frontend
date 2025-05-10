@@ -32,7 +32,7 @@ export class QuestionairesComponent {
   }
 
   create() : void {
-    this.router.navigate(['/admin/questionaires/new']);
+    this.router.navigate(['/admin/questionaires/new'],  { queryParams: { scenery: 'create' } });
   }
 
   delete(questionaire : Questionaire) : void {
@@ -41,7 +41,7 @@ export class QuestionairesComponent {
   }
 
   edit(questionaire : Questionaire) : void  {
-    this.router.navigate(['/admin/questionaires/', questionaire.id]);
+    this.router.navigate(['/admin/questionaires/', questionaire.id], { queryParams: { scenery: 'edit' } });
   }
 
 }
