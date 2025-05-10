@@ -72,7 +72,6 @@ export class CrudComponent {
     }
 
     isIncluded(def : string) : boolean {
-        console.log(!this.exclusions.includes(def));
         return !this.exclusions.includes(def);
     }
 
