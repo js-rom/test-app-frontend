@@ -6,16 +6,18 @@ export class Question implements SingleSelectionQuestion {
 
     id: string;
     description: string;
-    correctOptionId?: string;
+    //correctOptionId?: string;
     correctOptionIndex?: number;
     options: Array<SingleSelectionOption>;
     MAX_OPTIONS = 4;
 
-    constructor(id: string, description: string, correctOptionId: string, options: Array<SingleSelectionOption>) {
+    constructor(id: string, description: string, correctOptionIndex: number, options: Array<SingleSelectionOption>) {
         this.id = id;
         this.description = description;
-        this.correctOptionId = correctOptionId;
-        this.options ? options : this.addOptions();
+        this.correctOptionIndex = correctOptionIndex;
+        if (options) {
+            this.options = options
+        } else { this.addOptions(); }
     }
 
     addOption(singleSelectionOption: SingleSelectionOption) {
@@ -25,7 +27,7 @@ export class Question implements SingleSelectionQuestion {
     addOptions() {
         this.options = new Array<SingleSelectionOption>()
         for (let i = 0; i < this.MAX_OPTIONS; i++) {
-            this.addOption(new Option())
+            this.addOption(new Option(undefined, undefined))
         }
     }
 

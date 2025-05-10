@@ -6,7 +6,7 @@ export interface QuestionaireScenery {
     questionEdit: SingleSelectionQuestion;
     questionCreateUpdate: SingleSelectionQuestion
     isEdition: boolean;
-    readAll(): Observable<any[]>
+    readAll(id: string | undefined): Observable<any[]>
     create(question: SingleSelectionQuestion): void
     save(questions: SingleSelectionQuestion[]): void
     delete(question: SingleSelectionQuestion): void

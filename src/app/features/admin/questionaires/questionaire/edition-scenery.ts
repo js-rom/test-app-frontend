@@ -1,29 +1,29 @@
 import { Injectable } from "@angular/core";
-import { NewQuestionaireService } from "./new-questionaire.service";
 import { QuestionaireScenery } from "./Questionaire-scenery";
 import { SingleSelectionQuestion } from "./single-selection-question.model";
 import { Observable } from "rxjs";
 import { QuestionaireService } from "../questionaires.service";
 import { Question } from "./question.model";
 
-@Injectable()
-export class CreationScenery implements QuestionaireScenery {
+@Injectable({
+    providedIn: 'root'
+})
+export class EditionScenery implements QuestionaireScenery {
 
     questionEdit: SingleSelectionQuestion;
     questionCreateUpdate: SingleSelectionQuestion;
     isEdition = false;
 
-    constructor(private readonly newQuestionaireService: NewQuestionaireService,
-        private readonly questionaireService: QuestionaireService) {
+    constructor(private readonly questionaireService: QuestionaireService) {
         this.questionCreateUpdate = new Question(undefined, undefined, undefined, undefined)
     }
 
     readAll(id: string | undefined): Observable<SingleSelectionQuestion[]> {
-        return this.newQuestionaireService.readAll();
+        return this.questionaireService.readAllBy(id);
     }
 
     create(question: SingleSelectionQuestion): void {
-        this.newQuestionaireService.add(question);
+        this.questionaireService.createQuestion(question);
     }
 
     save(questions: SingleSelectionQuestion[]): void {
@@ -31,7 +31,7 @@ export class CreationScenery implements QuestionaireScenery {
     }
 
     delete(question: SingleSelectionQuestion): void {
-        this.newQuestionaireService.delete(question)
+        this.questionaireService.deleteQuestion(question.id)
     }
 
 
@@ -47,7 +47,7 @@ export class CreationScenery implements QuestionaireScenery {
     }
     update(questionUpdate: SingleSelectionQuestion): void {
         this.isEdition = false;
-        this.newQuestionaireService.update(this.questionEdit, questionUpdate)
+        this.questionaireService.updateQuestion(this.questionEdit.id, questionUpdate)
     }
 
 }
