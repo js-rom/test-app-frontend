@@ -6,12 +6,12 @@ import { CrudComponent } from '@common/components/crud.component';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-questionaire',
+  selector: 'app-questionaires',
   imports: [CrudComponent],
-  templateUrl: './questionaire.component.html',
-  styleUrl: './questionaire.component.scss'
+  templateUrl: './questionaires.component.html',
+  styleUrl: './questionaires.component.scss'
 })
-export class QuestionaireComponent {
+export class QuestionairesComponent {
   title : string = 'Gestión de cuestionarios'
   questionaires : Observable<Questionaire[]> = of([]);
   exclusions : string[] = ['id']
