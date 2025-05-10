@@ -6,18 +6,18 @@ import { CrudComponent } from '@common/components/crud.component';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-questionaire',
+  selector: 'app-questionaires',
   imports: [CrudComponent],
-  templateUrl: './questionaire.component.html',
-  styleUrl: './questionaire.component.scss'
+  templateUrl: './questionaires.component.html',
+  styleUrl: './questionaires.component.scss'
 })
-export class QuestionaireComponent {
+export class QuestionairesComponent {
   title : string = 'Gestión de cuestionarios'
   questionaires : Observable<Questionaire[]> = of([]);
   exclusions : string[] = ['id']
 
   constructor(private router: Router, private readonly questionaireService: QuestionaireService){
-    this.questionaires = questionaireService.readAll();
+    this.readAll();
   }
 
   get crudData() {
@@ -27,8 +27,21 @@ export class QuestionaireComponent {
     }
   }
 
-  create() {
+  readAll(): void {
+    this.questionaires = this.questionaireService.readAll();
+  }
+
+  create() : void {
     this.router.navigate(['/admin/questionaires/new']);
+  }
+
+  delete(questionaire : Questionaire) : void {
+    this.questionaireService.delete(questionaire.id)
+      .subscribe(() => this.readAll());
+  }
+
+  edit(questionaire : Questionaire) : void  {
+    this.router.navigate(['/admin/questionaires/', questionaire.id]);
   }
 
 }

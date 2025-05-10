@@ -12,13 +12,15 @@ import { InputData } from "../../../../common/components/input-data.component";
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-new-questionaire',
+  selector: 'app-questionaire',
   imports: [SingleSelectionQuestionComponent, QuestionCreationComponent, NgFor, MatIcon, InputData],
-  templateUrl: './new-questionaire.component.html',
-  styleUrl: './new-questionaire.component.scss'
+  providers: [NewQuestionaireService],
+  templateUrl: './questionaire.component.html',
+  styleUrl: './questionaire.component.scss'
 })
-export class NewQuestionaireComponent {
+export class QuestionaireComponent {
 
+  private id : string;
   private questionEdit: SingleSelectionQuestion;
   questionCreateUpdate: SingleSelectionQuestion = undefined;
   isEdition = false;
@@ -28,6 +30,7 @@ export class NewQuestionaireComponent {
     private readonly questionaireService: QuestionaireService,
     private router: Router, activatedRoute: ActivatedRoute) {
     this.questionCreateUpdate = new Question(undefined, undefined, undefined, undefined)
+    this.id = activatedRoute.snapshot.params['id'];
   }
 
   get questions() {
