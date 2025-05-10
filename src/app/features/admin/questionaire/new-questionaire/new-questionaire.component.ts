@@ -20,6 +20,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class NewQuestionaireComponent {
 
+  private id : string;
   private questionEdit: SingleSelectionQuestion;
   questionCreateUpdate: SingleSelectionQuestion = undefined;
   isEdition = false;
@@ -29,6 +30,7 @@ export class NewQuestionaireComponent {
     private readonly questionaireService: QuestionaireService,
     private router: Router, activatedRoute: ActivatedRoute) {
     this.questionCreateUpdate = new Question(undefined, undefined, undefined, undefined)
+    this.id = activatedRoute.snapshot.params['id'];
   }
 
   get questions() {

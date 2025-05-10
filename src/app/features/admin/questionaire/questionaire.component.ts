@@ -40,4 +40,8 @@ export class QuestionaireComponent {
       .subscribe(() => this.readAll());
   }
 
+  edit(questionaire : Questionaire) : void  {
+    this.router.navigate(['/admin/questionaires/', questionaire.id]);
+  }
+
 }

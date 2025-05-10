@@ -19,7 +19,8 @@ export const routes: Routes = [
         .then(component => component.AdminComponent),
         children: [
             { path: 'questionaires', component: QuestionaireComponent },
-            { path: 'questionaires/new', component: NewQuestionaireComponent }
+            { path: 'questionaires/new', component: NewQuestionaireComponent },
+            { path: 'questionaires/:id', component: NewQuestionaireComponent }
         ]
     }
 ];
