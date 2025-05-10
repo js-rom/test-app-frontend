@@ -14,6 +14,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-new-questionaire',
   imports: [SingleSelectionQuestionComponent, QuestionCreationComponent, NgFor, MatIcon, InputData],
+  providers: [NewQuestionaireService],
   templateUrl: './new-questionaire.component.html',
   styleUrl: './new-questionaire.component.scss'
 })
