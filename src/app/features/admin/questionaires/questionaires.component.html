@@ -2,7 +2,7 @@
     <div class="leftSide"></div>
     <div class="body">
         <h1>Cuestionarios</h1>
-        <app-crud [data]="crudData"  (create)="create()" (delete)="delete($event)" (update)="edit($event)" [readAction]="false" [deleteAction]="true" [title]="title"></app-crud>
+        <app-crud [exclusions]="exclusions" [data]="questionaires"  (create)="create()" (delete)="delete($event)" (update)="edit($event)" [readAction]="false" [deleteAction]="true" [title]="title"></app-crud>
     </div>
     <div class="rightSide"></div>
 </section>
