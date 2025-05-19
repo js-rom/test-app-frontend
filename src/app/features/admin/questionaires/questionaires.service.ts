@@ -4,23 +4,23 @@ import { Injectable } from "@angular/core";
 import { SingleSelectionQuestion } from "./questionaire/single-selection-question.model";
 import { Question } from "./questionaire/question.model";
 import { Option } from "./questionaire/Option.model";
+import { HttpService } from "@core/services/HttpService";
+import { EndPoints } from "@common/end-point";
 
 @Injectable({ providedIn: 'root' })
 export class QuestionaireService {
 
+    constructor(private readonly httpService: HttpService) {
+    }
+    
     readAll(): Observable<Questionaire[]> {
-        return of([
-            { id: '1', description: 'cuestionario 1' },
-            { id: '2', description: 'cuestionario 2' },
-            { id: '3', description: 'cuestionario 3' },
-            { id: '4', description: 'cuestionario 4' },
-            { id: '5', description: 'cuestionario 5' },
-        ]);
+        return this.httpService
+               .get(EndPoints.QUESTIONAIRES);
     }
 
     delete(id: string): Observable<void> {
-        /*      return this.httpService
-               .delete(EndPoints.QUESTIONAIRES + '/' + id); */
+/*         return this.httpService
+               .delete(EndPoints.QUESTIONAIRES + '/' + id);  */
         return of();
     }
 
