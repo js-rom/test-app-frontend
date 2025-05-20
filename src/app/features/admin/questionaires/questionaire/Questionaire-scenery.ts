@@ -9,7 +9,7 @@ export interface QuestionaireScenery {
     questionCreateUpdate: SingleSelectionQuestion
     isEdition: boolean;
     readAllQuestions(id: string | undefined): Observable<any[]>
-    create(question: SingleSelectionQuestion): void
+    create(question: SingleSelectionQuestion, questionaireId : string): Observable<SingleSelectionQuestion>
     save(questionaire: QuestionaireType): Observable<QuestionaireType>
     delete(question: SingleSelectionQuestion): void
     cancelEdition(): void
