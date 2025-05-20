@@ -36,8 +36,9 @@ export class CreationScenery implements QuestionaireScenery {
         return this.questionaireService.create(questionaire);
     }
 
-    delete(question: SingleSelectionQuestion): void {
-        this.newQuestionaireService.delete(question)
+    delete(questionaireId: string, question: SingleSelectionQuestion): Observable<void> {
+        this.newQuestionaireService.delete(question);
+        return of();
     }
 
 

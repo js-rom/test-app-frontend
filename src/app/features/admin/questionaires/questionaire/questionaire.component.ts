@@ -80,7 +80,7 @@ export class QuestionaireComponent {
   }
 
   delete(question: SingleSelectionQuestion) {
-    this.scenery.delete(question)
+    this.scenery.delete(this.id, question).subscribe(()=> this.readAll());
   }
 
   edit(question: SingleSelectionQuestion) {

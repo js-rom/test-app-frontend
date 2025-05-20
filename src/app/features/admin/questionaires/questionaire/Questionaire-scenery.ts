@@ -11,7 +11,7 @@ export interface QuestionaireScenery {
     readAllQuestions(id: string | undefined): Observable<any[]>
     create(question: SingleSelectionQuestion, questionaireId : string): Observable<SingleSelectionQuestion>
     save(questionaire: QuestionaireType): Observable<QuestionaireType>
-    delete(question: SingleSelectionQuestion): void
+    delete(questionaireId: string, question: SingleSelectionQuestion): Observable<void>
     cancelEdition(): void
     update(questionUpdate: SingleSelectionQuestion): void
     edit(question: SingleSelectionQuestion): void
