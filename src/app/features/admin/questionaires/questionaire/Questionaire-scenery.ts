@@ -13,8 +13,7 @@ export interface QuestionaireScenery {
     save(questionaire: QuestionaireType): Observable<QuestionaireType>
     delete(questionaireId: string, question: SingleSelectionQuestion): Observable<void>
     cancelEdition(): void
-    update(questionUpdate: SingleSelectionQuestion): void
     edit(question: SingleSelectionQuestion): void
     cancelEdition(): void
-    update(questionUpdate: SingleSelectionQuestion): void
+    update(questionaireId: string, questionUpdate: SingleSelectionQuestion): Observable<SingleSelectionQuestion> 
 }

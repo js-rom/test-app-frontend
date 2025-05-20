@@ -52,9 +52,10 @@ export class CreationScenery implements QuestionaireScenery {
         this.isEdition = false;
         this.questionCreateUpdate = new Question(undefined, undefined, undefined, undefined)
     }
-    update(questionUpdate: SingleSelectionQuestion): void {
+    update(questionaireId: string, questionUpdate: SingleSelectionQuestion): Observable<SingleSelectionQuestion>  {
         this.isEdition = false;
-        this.newQuestionaireService.update(this.questionEdit, questionUpdate)
+        this.newQuestionaireService.update(this.questionEdit, questionUpdate);
+        return of();
     }
 
 }

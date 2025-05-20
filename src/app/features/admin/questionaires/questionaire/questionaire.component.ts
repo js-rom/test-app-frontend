@@ -92,7 +92,7 @@ export class QuestionaireComponent {
   }
 
   update(questionUpdate: SingleSelectionQuestion) {
-    this.scenery.update(questionUpdate)
+    this.scenery.update(this.id, questionUpdate).subscribe(()=> this.readAll());
   }
 
   isEdition(): boolean {
