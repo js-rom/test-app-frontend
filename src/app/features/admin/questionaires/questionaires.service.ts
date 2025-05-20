@@ -35,13 +35,14 @@ export class QuestionaireService {
             .get(EndPoints.QUESTIONAIRES + '/' + id + '/single-selection-questions');
     }
 
-    createQuestion(question: SingleSelectionQuestion, questionaireId : string): Observable<SingleSelectionQuestion> {
+    createQuestion(question: SingleSelectionQuestion, questionaireId: string): Observable<SingleSelectionQuestion> {
         return this.httpService
             .post(EndPoints.QUESTIONAIRES + '/' + questionaireId, question);
     }
 
-    deleteQuestion(id: string): Observable<void> {
-        return of();
+    deleteQuestion(questionaireId: string, id: string): Observable<void> {
+        return this.httpService
+            .delete(EndPoints.QUESTIONAIRES + '/' + questionaireId + '/single-selection-questions' + '/' +  id);
     }
 
     updateQuestion(id: string, questionUpdate: SingleSelectionQuestion): Observable<SingleSelectionQuestion> {
