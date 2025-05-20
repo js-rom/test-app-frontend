@@ -11,6 +11,7 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { CreationScenery } from './creation-scenery';
 import { QuestionaireScenery } from './Questionaire-scenery';
 import { EditionScenery } from './edition-scenery';
+import { map, tap } from 'rxjs';
 
 @Component({
   selector: 'app-questionaire',
@@ -22,7 +23,7 @@ import { EditionScenery } from './edition-scenery';
 export class QuestionaireComponent {
 
   private id: string;
-  private questions: Array<SingleSelectionQuestion>;
+  public questions: Array<SingleSelectionQuestion>;
   private scenery: QuestionaireScenery;
 
   constructor(private readonly dialog: MatDialog,
@@ -60,6 +61,7 @@ export class QuestionaireComponent {
 
   create(question: SingleSelectionQuestion): void {
     this.scenery.create(question);
+    this.readAll();
   }
 
   save() {
