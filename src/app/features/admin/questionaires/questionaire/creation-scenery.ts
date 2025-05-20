@@ -5,6 +5,7 @@ import { SingleSelectionQuestion } from "./single-selection-question.model";
 import { Observable, of } from "rxjs";
 import { QuestionaireService } from "../questionaires.service";
 import { Question } from "./question.model";
+import { QuestionaireType } from "../questionaire.model";
 
 @Injectable()
 export class CreationScenery implements QuestionaireScenery {
@@ -18,7 +19,7 @@ export class CreationScenery implements QuestionaireScenery {
         this.questionCreateUpdate = new Question(undefined, undefined, undefined, undefined)
     }
     getDescription(): Observable<string> {
-       return of('Nuevo Cuestionario');
+        return of('Nuevo Cuestionario');
     }
 
     readAllQuestions(id: string | undefined): Observable<SingleSelectionQuestion[]> {
@@ -29,8 +30,8 @@ export class CreationScenery implements QuestionaireScenery {
         this.newQuestionaireService.add(question);
     }
 
-    save(questions: SingleSelectionQuestion[]): void {
-        this.questionaireService.create(questions);
+    save(questionaire: QuestionaireType): Observable<QuestionaireType> {
+        return this.questionaireService.create(questionaire);
     }
 
     delete(question: SingleSelectionQuestion): void {

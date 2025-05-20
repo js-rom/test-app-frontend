@@ -12,6 +12,7 @@ import { CreationScenery } from './creation-scenery';
 import { QuestionaireScenery } from './Questionaire-scenery';
 import { EditionScenery } from './edition-scenery';
 import { map, tap } from 'rxjs';
+import { Questionaire } from './questionaire.model';
 
 @Component({
   selector: 'app-questionaire',
@@ -70,9 +71,13 @@ export class QuestionaireComponent {
     this.readAll();
   }
 
-  save() {
-    this.scenery.save(this.questions);
-    this.router.navigate(['/admin/questionaires']);
+  save(value) {
+    const questionaire = new Questionaire();
+    questionaire.id = null;
+    questionaire.description = value;
+    questionaire.singleSelectionQuestions = this.questions;;
+    this.scenery.save(questionaire).subscribe(() => this.router.navigate(['/admin/questionaires']));
+    
   }
 
   delete(question: SingleSelectionQuestion) {

@@ -1,5 +1,6 @@
 import { Observable } from "rxjs";
 import { SingleSelectionQuestion } from "./single-selection-question.model";
+import { QuestionaireType } from "../questionaire.model";
 
 export interface QuestionaireScenery {
     getDescription(id: string): Observable<string>;
@@ -9,7 +10,7 @@ export interface QuestionaireScenery {
     isEdition: boolean;
     readAllQuestions(id: string | undefined): Observable<any[]>
     create(question: SingleSelectionQuestion): void
-    save(questions: SingleSelectionQuestion[]): void
+    save(questionaire: QuestionaireType): Observable<QuestionaireType>
     delete(question: SingleSelectionQuestion): void
     cancelEdition(): void
     update(questionUpdate: SingleSelectionQuestion): void

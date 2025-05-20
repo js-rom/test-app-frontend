@@ -4,6 +4,7 @@ import { SingleSelectionQuestion } from "./single-selection-question.model";
 import { Observable } from "rxjs";
 import { QuestionaireService } from "../questionaires.service";
 import { Question } from "./question.model";
+import { QuestionaireType } from "../questionaire.model";
 
 @Injectable({
     providedIn: 'root'
@@ -17,7 +18,7 @@ export class EditionScenery implements QuestionaireScenery {
     constructor(private readonly questionaireService: QuestionaireService) {
         this.questionCreateUpdate = new Question(undefined, undefined, undefined, undefined)
     }
-    getDescription(id: string ): Observable<string> {
+    getDescription(id: string): Observable<string> {
         return this.questionaireService.readDescriptionBy(id);
     }
 
@@ -29,8 +30,8 @@ export class EditionScenery implements QuestionaireScenery {
         this.questionaireService.createQuestion(question);
     }
 
-    save(questions: SingleSelectionQuestion[]): void {
-        this.questionaireService.create(questions);
+    save(questionaire: QuestionaireType): Observable<QuestionaireType> {
+        return this.questionaireService.create(questionaire);
     }
 
     delete(question: SingleSelectionQuestion): void {
