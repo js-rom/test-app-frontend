@@ -65,15 +65,6 @@ export class QuestionaireComponent {
     this.scenery.getDescription(this.id).subscribe(description => this.description = description);
   }
 
-/*   get description() {
-    this.scenery.getDescription(this.id).subscribe(description => this.description = description);
-    return this.description;
-  }
-
-  set description(description: string) {
-    this.description = description;
-  } */
-
   create(question: SingleSelectionQuestion): void {
     this.scenery.create(question);
     this.readAll();

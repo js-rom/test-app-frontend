@@ -19,9 +19,9 @@ export class QuestionaireService {
     }
 
     delete(id: string): Observable<void> {
-        /*         return this.httpService
-                       .delete(EndPoints.QUESTIONAIRES + '/' + id);  */
-        return of();
+        return this.httpService
+                       .delete(EndPoints.QUESTIONAIRES + '/' + id);
+       // return of();
     }
 
     create(questions: Array<SingleSelectionQuestion>): Observable<Questionaire> {
