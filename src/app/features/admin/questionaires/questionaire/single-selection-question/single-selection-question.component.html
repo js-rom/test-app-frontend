@@ -4,7 +4,7 @@
         <mat-radio-group [(ngModel)]="question.correctOptionIndex">
             @for (option of question.options; track $index) {
             <div class="option">
-                <mat-radio-button [value]="$index"></mat-radio-button>
+                <mat-radio-button [value]="$index" [disabled]="true"></mat-radio-button>
                 <p class="large-text">{{option.description}}</p>
             </div>
             }
