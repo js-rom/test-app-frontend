@@ -26,7 +26,7 @@ export class QuestionaireComponent {
   private id: string;
   public questions: Array<SingleSelectionQuestion>;
   private scenery: QuestionaireScenery;
-  public description : string;
+  public description: string;
 
   constructor(private readonly dialog: MatDialog,
     private router: Router,
@@ -67,8 +67,7 @@ export class QuestionaireComponent {
   }
 
   create(question: SingleSelectionQuestion): void {
-    this.scenery.create(question);
-    this.readAll();
+    this.scenery.create(question, this.id).subscribe(() => this.readAll());
   }
 
   save(value) {
@@ -77,7 +76,7 @@ export class QuestionaireComponent {
     questionaire.description = value;
     questionaire.singleSelectionQuestions = this.questions;;
     this.scenery.save(questionaire).subscribe(() => this.router.navigate(['/admin/questionaires']));
-    
+
   }
 
   delete(question: SingleSelectionQuestion) {

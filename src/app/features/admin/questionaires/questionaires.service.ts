@@ -35,8 +35,9 @@ export class QuestionaireService {
             .get(EndPoints.QUESTIONAIRES + '/' + id + '/single-selection-questions');
     }
 
-    createQuestion(question: SingleSelectionQuestion): Observable<SingleSelectionQuestion> {
-        return of(question);
+    createQuestion(question: SingleSelectionQuestion, questionaireId : string): Observable<SingleSelectionQuestion> {
+        return this.httpService
+            .post(EndPoints.QUESTIONAIRES + '/' + questionaireId, question);
     }
 
     deleteQuestion(id: string): Observable<void> {

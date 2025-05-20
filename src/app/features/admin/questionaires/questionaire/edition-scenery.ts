@@ -26,8 +26,8 @@ export class EditionScenery implements QuestionaireScenery {
         return this.questionaireService.readAllBy(id);
     }
 
-    create(question: SingleSelectionQuestion): void {
-        this.questionaireService.createQuestion(question);
+    create(question: SingleSelectionQuestion, questionaireId : string): Observable<SingleSelectionQuestion> {
+        return this.questionaireService.createQuestion(question, questionaireId);
     }
 
     save(questionaire: QuestionaireType): Observable<QuestionaireType> {
