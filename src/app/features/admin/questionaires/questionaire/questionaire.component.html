@@ -2,7 +2,7 @@
     <div class="leftSide"></div>
     <div class="body">
 
-        <app-input-data [title]="'Nuevo Cuestionario'" (action)="save()"></app-input-data>
+        <app-input-data [title]="description" (action)="save()"></app-input-data>
 
         <section class="newQuestion">
             <app-question-creation (create)="create($event)" (cancelEdition)="cancelEdition()" (update)="update($event)"

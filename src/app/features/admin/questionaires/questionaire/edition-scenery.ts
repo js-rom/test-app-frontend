@@ -17,8 +17,11 @@ export class EditionScenery implements QuestionaireScenery {
     constructor(private readonly questionaireService: QuestionaireService) {
         this.questionCreateUpdate = new Question(undefined, undefined, undefined, undefined)
     }
+    getDescription(id: string ): Observable<string> {
+        return this.questionaireService.readDescriptionBy(id);
+    }
 
-    readAll(id: string | undefined): Observable<SingleSelectionQuestion[]> {
+    readAllQuestions(id: string | undefined): Observable<SingleSelectionQuestion[]> {
         return this.questionaireService.readAllBy(id);
     }
 

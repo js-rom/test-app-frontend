@@ -2,11 +2,12 @@ import { Observable } from "rxjs";
 import { SingleSelectionQuestion } from "./single-selection-question.model";
 
 export interface QuestionaireScenery {
+    getDescription(id: string): Observable<string>;
     //id: string;
     questionEdit: SingleSelectionQuestion;
     questionCreateUpdate: SingleSelectionQuestion
     isEdition: boolean;
-    readAll(id: string | undefined): Observable<any[]>
+    readAllQuestions(id: string | undefined): Observable<any[]>
     create(question: SingleSelectionQuestion): void
     save(questions: SingleSelectionQuestion[]): void
     delete(question: SingleSelectionQuestion): void

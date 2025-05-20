@@ -25,6 +25,7 @@ export class QuestionaireComponent {
   private id: string;
   public questions: Array<SingleSelectionQuestion>;
   private scenery: QuestionaireScenery;
+  public description : string;
 
   constructor(private readonly dialog: MatDialog,
     private router: Router,
@@ -32,6 +33,7 @@ export class QuestionaireComponent {
     this.id = activatedRoute.snapshot.params['id'];
     this.resolveScenery();
     this.readAll();
+    this.readDescription()
   }
 
   resolveScenery() {
@@ -55,9 +57,22 @@ export class QuestionaireComponent {
 
   readAll() {
     console.log(this.scenery)
-    this.scenery.readAll(this.id)
+    this.scenery.readAllQuestions(this.id)
       .subscribe(questions => this.questions = questions)
   }
+
+  readDescription() {
+    this.scenery.getDescription(this.id).subscribe(description => this.description = description);
+  }
+
+/*   get description() {
+    this.scenery.getDescription(this.id).subscribe(description => this.description = description);
+    return this.description;
+  }
+
+  set description(description: string) {
+    this.description = description;
+  } */
 
   create(question: SingleSelectionQuestion): void {
     this.scenery.create(question);

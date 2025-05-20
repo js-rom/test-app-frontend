@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { NewQuestionaireService } from "./new-questionaire.service";
 import { QuestionaireScenery } from "./Questionaire-scenery";
 import { SingleSelectionQuestion } from "./single-selection-question.model";
-import { Observable } from "rxjs";
+import { Observable, of } from "rxjs";
 import { QuestionaireService } from "../questionaires.service";
 import { Question } from "./question.model";
 
@@ -17,8 +17,11 @@ export class CreationScenery implements QuestionaireScenery {
         private readonly questionaireService: QuestionaireService) {
         this.questionCreateUpdate = new Question(undefined, undefined, undefined, undefined)
     }
+    getDescription(): Observable<string> {
+       return of('Nuevo Cuestionario');
+    }
 
-    readAll(id: string | undefined): Observable<SingleSelectionQuestion[]> {
+    readAllQuestions(id: string | undefined): Observable<SingleSelectionQuestion[]> {
         return this.newQuestionaireService.readAll();
     }
 
