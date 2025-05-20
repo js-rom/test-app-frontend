@@ -45,8 +45,9 @@ export class QuestionaireService {
             .delete(EndPoints.QUESTIONAIRES + '/' + questionaireId + '/single-selection-questions' + '/' +  id);
     }
 
-    updateQuestion(id: string, questionUpdate: SingleSelectionQuestion): Observable<SingleSelectionQuestion> {
-        return of(questionUpdate);
+    updateQuestion(questionaireId: string, questionUpdate: SingleSelectionQuestion): Observable<SingleSelectionQuestion> {
+        return this.httpService
+        .put(EndPoints.QUESTIONAIRES + '/' + questionaireId + '/single-selection-questions' + '/' +  questionUpdate.id, questionUpdate);
     }
 
     readDescriptionBy(id: string): Observable<string> {
