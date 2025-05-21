@@ -1,6 +1,6 @@
 {
   "name": "test-app-frontend",
-  "version": "0.2.1-Release",
+  "version": "0.2.2-Release",
   "scripts": {
     "build-prod": "ng build --configuration prod",
     "ng": "ng",
