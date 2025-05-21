@@ -2,7 +2,7 @@
   "name": "test-app-frontend",
   "version": "0.2.2-Release",
   "scripts": {
-    "build-prod": "ng build --configuration prod",
+    "build-prod": "ng build --configuration production",
     "ng": "ng",
     "start": "ng serve --host 0.0.0.0 --port 4200",
     "build": "ng build",
