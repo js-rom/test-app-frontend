@@ -6,7 +6,7 @@ import { QuestionairesComponent } from './features/admin/questionaires/questiona
 import { QuestionaireComponent } from './features/admin/questionaires/questionaire/questionaire.component';
 
 export const routes: Routes = [
-    { path: '', pathMatch: 'full', redirectTo: 'home/wellcome' },
+    { path: '', pathMatch: 'full', redirectTo: 'admin' },
     {
         path: 'home', loadComponent: () => import('./features/home/home.component')
             .then(component => component.HomeComponent),
