@@ -52,10 +52,6 @@ export class QuestionaireComponent {
     });
   }
 
-  getQuestions() {
-    return this.questions.reverse();
-  }
-
   readAll() {
     console.log(this.scenery)
     this.scenery.readAllQuestions(this.id)
@@ -80,7 +76,7 @@ export class QuestionaireComponent {
   }
 
   delete(question: SingleSelectionQuestion) {
-    this.scenery.delete(this.id, question).subscribe(()=> this.readAll());
+    this.scenery.delete(this.id, question).subscribe(() => this.readAll());
   }
 
   edit(question: SingleSelectionQuestion) {
@@ -92,7 +88,7 @@ export class QuestionaireComponent {
   }
 
   update(questionUpdate: SingleSelectionQuestion) {
-    this.scenery.update(this.id, questionUpdate).subscribe(()=> this.readAll());
+    this.scenery.update(this.id, questionUpdate).subscribe(() => this.readAll());
   }
 
   isEdition(): boolean {

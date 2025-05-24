@@ -9,7 +9,7 @@
             [questionCreateUpdate]="getQuestionCreateUpdate()" [editAction]="isEdition()"></app-question-creation>
         </section>
         <section class="questions">
-            <app-single-selection-question *ngFor="let question of getQuestions(); let i = index"
+            <app-single-selection-question *ngFor="let question of questions; let i = index"
                 [question]="question" [index]="i" [deleteAction]="true" [updateAction]="true"
                 (delete)="delete($event)" (update)="edit($event)"></app-single-selection-question>
         </section>
