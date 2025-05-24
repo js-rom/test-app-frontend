@@ -42,7 +42,6 @@ export class QuestionaireComponent {
       const scenery = params.get('scenery');
       switch (scenery) {
         case "create":
-          console.log('create')
           this.scenery = inject(CreationScenery);
           break;
         case "edit":
@@ -53,7 +52,6 @@ export class QuestionaireComponent {
   }
 
   readAll() {
-    console.log(this.scenery)
     this.scenery.readAllQuestions(this.id)
       .subscribe(questions => this.questions = questions)
   }
